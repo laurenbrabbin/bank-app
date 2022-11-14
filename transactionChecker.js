@@ -22,7 +22,9 @@ class TransactionChecker {
   }
 
   isNumerical () {
-    if (!isNaN(this.amount)) {
+    if (this.amount === true || this.amount === false) {
+      return false
+    } else if (!isNaN(this.amount)) {
       return true
     } else {
       return false
