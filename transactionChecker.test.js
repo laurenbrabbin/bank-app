@@ -11,4 +11,14 @@ describe('Transaction', () => {
     const transactionChecker = new TransactionChecker(transactionDouble)
     expect(transactionChecker.check()).toEqual('invalid');
   });
+  it('returns invalid if amount is empty', () => {
+    const transactionDouble = { date: null, amount: null, type: 'deposit'};
+    const transactionChecker = new TransactionChecker(transactionDouble)
+    expect(transactionChecker.check()).toEqual('invalid');
+  });
+  it('returns invalid if type is empty', () => {
+    const transactionDouble = { date: null, amount: null, type: null };
+    const transactionChecker = new TransactionChecker(transactionDouble)
+    expect(transactionChecker.check()).toEqual('invalid');
+  });
 })
