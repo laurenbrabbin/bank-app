@@ -14,7 +14,7 @@ class TransactionChecker {
   }
 
   empty () {
-    if (this.date == null || this.date == "") {
+    if (this.date == null || this.date == "" || this.amount == null || this.amount == "") {
       return true
     } else {
       return false
