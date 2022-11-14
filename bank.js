@@ -23,6 +23,10 @@ class Bank {
     }
   }
 
+  byDate () { 
+    return [].concat(this.transactions).sort((a, b) => b.date - a.date).reverse();
+  }
+
   statement () {
     this.sum = this.balance
     return 'date || credit || debit || balance\n' + this.transactions.map(this.formatTransactions).join('')
