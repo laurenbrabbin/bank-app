@@ -6,4 +6,9 @@ describe('Transaction', () => {
     const transactionChecker = new TransactionChecker(transactionDouble)
     expect(transactionChecker.check()).toEqual('valid');
   });
+  it('returns invalid if date is empty', () => {
+    const transactionDouble = { date: null, amount: 1000, type: 'deposit'};
+    const transactionChecker = new TransactionChecker(transactionDouble)
+    expect(transactionChecker.check()).toEqual('invalid');
+  });
 })
