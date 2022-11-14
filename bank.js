@@ -29,7 +29,7 @@ class Bank {
 
   statement () {
     this.sum = this.balance
-    return 'date || credit || debit || balance\n' + this.transactions.map(this.formatTransactions).join('')
+    return 'date || credit || debit || balance\n' + this.byDate().map(this.formatTransactions).join('')
   }
 }
 
