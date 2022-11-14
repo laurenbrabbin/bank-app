@@ -6,7 +6,7 @@ class TransactionChecker {
   }
 
   check () {
-    if (this.empty() === true || this.isNumerical() === false){
+    if (this.empty() === true || this.isNumerical() === false || this.validType() === false){
       return 'invalid' 
     } else {
       return 'valid'
@@ -25,6 +25,14 @@ class TransactionChecker {
     if (this.amount === true || this.amount === false || typeof this.amount === 'string') {
       return false
     } else if (!isNaN(this.amount)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  validType () {
+    if (this.type == 'deposit' || this.type == 'withdrawal') {
       return true
     } else {
       return false

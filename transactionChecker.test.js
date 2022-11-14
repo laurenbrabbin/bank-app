@@ -36,4 +36,9 @@ describe('Transaction', () => {
     const transactionChecker = new TransactionChecker(transactionDouble)
     expect(transactionChecker.check()).toEqual('invalid');
   });
+  it('returns invalid if type is neither deposit or withdrawal', () => {
+    const transactionDouble = { date: '10/01/2023', amount: 1000, type: 'unrecognised' };
+    const transactionChecker = new TransactionChecker(transactionDouble)
+    expect(transactionChecker.check()).toEqual('invalid');
+  });
 })
