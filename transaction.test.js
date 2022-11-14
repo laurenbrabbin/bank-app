@@ -5,12 +5,15 @@ describe('Transaction', () => {
     const transaction = new Transaction(1000)
     expect(transaction.amount).toEqual(1000);
   });
-  it('returns the date', () => {
-    const transaction = new Transaction(1000, '10/01/2023')
+  it('returns the date in DD/MM/YYYY formatt', () => {
+    jest.useFakeTimers('modern');
+    jest.setSystemTime(new Date(2023, 1, 10))
+    const transaction = new Transaction(1000)
     expect(transaction.date).toEqual('10/01/2023');
   });
   it('returns transaction type', () => {
-    const transaction = new Transaction(1000, '10/01/2023', 'deposit')
+    jest.setSystemTime(new Date(2023, 1, 10))
+    const transaction = new Transaction(1000, 'deposit')
     expect(transaction.type).toEqual('deposit');
   });
 })
