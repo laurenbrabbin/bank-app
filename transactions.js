@@ -10,9 +10,7 @@ class Transactions {
       this.balance += transaction.amount
     } else if (transaction.type === 'withdrawal') {
       this.balance -= transaction.amount
-    } else (
-      console.log('please ensure transaction type is either withdrawal or deposit')
-    )
+    } 
   }
 
   byDate () { 

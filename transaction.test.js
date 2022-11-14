@@ -2,7 +2,7 @@ const Transaction = require("./transaction")
 
 describe('Transaction', () => {
   it('returns transaction amount', () => {
-    const transaction = new Transaction(500.00, 'deposit')
+    const transaction = new Transaction(500.00)
     expect(transaction.amount).toEqual(500.00);
   });
   it('returns the date in DD/MM/YYYY formatt', () => {
