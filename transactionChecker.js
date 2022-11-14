@@ -22,7 +22,7 @@ class TransactionChecker {
   }
 
   isNumerical () {
-    if (this.amount === true || this.amount === false) {
+    if (this.amount === true || this.amount === false || typeof this.amount === 'string') {
       return false
     } else if (!isNaN(this.amount)) {
       return true

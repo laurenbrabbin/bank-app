@@ -31,4 +31,9 @@ describe('Transaction', () => {
     const transactionChecker = new TransactionChecker(transactionDouble)
     expect(transactionChecker.check()).toEqual('invalid');
   });
+  it('returns valid if amount is number in string formal', () => {
+    const transactionDouble = { date: '10/01/2023', amount: '1000', type: 'deposit' };
+    const transactionChecker = new TransactionChecker(transactionDouble)
+    expect(transactionChecker.check()).toEqual('invalid');
+  });
 })
