@@ -6,7 +6,7 @@ class TransactionChecker {
   }
 
   check () {
-    if (this.empty() == true) {
+    if (this.empty() === true || this.isNumerical() === false){
       return 'invalid' 
     } else {
       return 'valid'
@@ -15,6 +15,14 @@ class TransactionChecker {
 
   empty () {
     if (this.date == null || this.date == "" || this.amount == null || this.amount == "" || this.type == null || this.type == "") {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  isNumerical () {
+    if (!isNaN(this.amount)) {
       return true
     } else {
       return false
