@@ -21,5 +21,5 @@ class Transaction {
 
 module.exports = Transaction
 
-const transaction = new Transaction(1000)
-console.log(transaction.amount + transaction.amount)
+//const transaction = new Transaction(1000, 'deposit')
+//console.log(transaction.type)

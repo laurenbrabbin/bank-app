@@ -1,16 +1,8 @@
 class Bank {
-  constructor() {
-    this.balance = 0
-    this.transactions = [];
-  }
-
-  add(transaction){
-    this.transactions.push(transaction);
-    if (transaction.type === 'deposit') {
-      this.balance += transaction.amount
-    } else {
-      this.balance -= transaction.amount
-    }
+  constructor(transactions) {
+    this.balance = transactions.balance;
+    this.transactions = transactions.byDate;
+    this.sum = 0
   }
 
   formatTransactions = (transaction) => {
@@ -23,14 +15,12 @@ class Bank {
     }
   }
 
-  byDate () { 
-    return [].concat(this.transactions).sort((a, b) => b.date - a.date).reverse();
-  }
-
   statement () {
     this.sum = this.balance
-    return 'date || credit || debit || balance\n' + this.byDate().map(this.formatTransactions).join('')
+    return 'date || credit || debit || balance\n' + this.transactions.map(this.formatTransactions).join('')
   }
 }
 
 module.exports = Bank
+
+
