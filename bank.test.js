@@ -9,7 +9,7 @@ describe('Bank', () => {
     const bank = new Bank
     const transactionDouble = { date: '10/01/2023', amount: 1000, type: 'deposit'};
     bank.add(transactionDouble)
-    expect(bank.statement()).toBe('date || credit || debit || balance\n10/01/2023 || 1000 || || 1000\n');
+    expect(bank.statement()).toBe('date || credit || debit || balance\n10/01/2023 || 1000.00 || || 1000.00\n');
   });
   it('returns transactions in decending order', () => {
     const bank = new Bank
@@ -31,7 +31,7 @@ describe('Bank', () => {
     bank.add(transactionDouble)
     bank.add(transactionDouble2)
     bank.add(transactionDouble3)
-    expect(bank.statement()).toEqual('date || credit || debit || balance\n14/01/2023 || || 500 || 2500\n13/01/2023 || 2000 || || 3000\n10/01/2023 || 1000 || || 1000\n');
+    expect(bank.statement()).toEqual('date || credit || debit || balance\n14/01/2023 || || 500.00 || 2500.00\n13/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00\n');
   });
   it('allows bank statement to be printed more than once', () => {
     const bank = new Bank
@@ -40,6 +40,6 @@ describe('Bank', () => {
     bank.add(transactionDouble)
     bank.add(transactionDouble2)
     bank.statement()
-    expect(bank.statement()).toEqual('date || credit || debit || balance\n13/01/2023 || 2000 || || 3000\n10/01/2023 || 1000 || || 1000\n');
+    expect(bank.statement()).toEqual('date || credit || debit || balance\n13/01/2023 || 2000.00 || || 3000.00\n10/01/2023 || 1000.00 || || 1000.00\n');
   });
 })

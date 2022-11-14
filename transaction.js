@@ -1,7 +1,7 @@
 // The decimal points are missing on the end of the numbers and The tests only pass today, because the dates aren't mocked or passed in as arguments
 class Transaction {
   constructor (amount, type) { 
-    this.amount = amount.toFixed(2)
+    this.amount = amount
     this.type = type
     this.date = this.formatDate(new Date())
   }
@@ -22,4 +22,4 @@ class Transaction {
 module.exports = Transaction
 
 const transaction = new Transaction(1000)
-console.log(transaction.amount)
+console.log(transaction.amount + transaction.amount)

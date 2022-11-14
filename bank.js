@@ -16,10 +16,10 @@ class Bank {
   formatTransactions = (transaction) => {
     if (transaction.type === 'deposit') {
       this.sum -= transaction.amount
-      return `${transaction.date} || ${transaction.amount} || || ${this.sum + transaction.amount}\n`
+      return `${transaction.date} || ${transaction.amount.toFixed(2)} || || ${(this.sum + transaction.amount).toFixed(2)}\n`
     } else {
       this.sum += transaction.amount
-      return `${transaction.date} || || ${transaction.amount} || ${this.sum - transaction.amount}\n`
+      return `${transaction.date} || || ${transaction.amount.toFixed(2)} || ${(this.sum - transaction.amount).toFixed(2)}\n`
     }
   }
 
