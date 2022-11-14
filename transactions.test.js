@@ -44,4 +44,10 @@ describe('Transactions', () => {
     transactions.add(transactionDouble3)
     expect(transactions.balance).toEqual(2500);
   });
+  it('transaction will not be added if details are incorrect', () => {
+    const transactions = new Transactions
+    const transactionDouble = { date: 'invalid', amount: 'invalid', type: 'invalid'};
+    transactions.add(transactionDouble)
+    expect(transactions.all.length).toEqual(0);
+  });
 })

@@ -44,8 +44,8 @@ class TransactionChecker {
         return false; }
 
     var parts = this.date.split("/");
-    var day = parseInt(parts[1], 10);
-    var month = parseInt(parts[0], 10);
+    var day = parseInt(parts[0], 10);
+    var month = parseInt(parts[1], 10);
     var year = parseInt(parts[2], 10);
 
     if(year < 1000 || year > 3000 || month == 0 || month > 12) {

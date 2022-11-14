@@ -1,7 +1,6 @@
-// The decimal points are missing on the end of the numbers and The tests only pass today, because the dates aren't mocked or passed in as arguments
 class Transaction {
   constructor (amount, type) { 
-    this.amount = amount
+    this.amount = amount //convert to integer
     this.type = type
     this.date = this.formatDate(new Date())
   }
@@ -20,6 +19,3 @@ class Transaction {
 }
 
 module.exports = Transaction
-
-//const transaction = new Transaction(1000, 'deposit')
-//console.log(transaction.type)

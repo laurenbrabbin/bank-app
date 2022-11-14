@@ -1,3 +1,5 @@
+const TransactionChecker = require("./transactionChecker")
+
 class Transactions {
   constructor() {
     this.all = []
@@ -5,12 +7,11 @@ class Transactions {
   }
 
   add(transaction){
-    this.all.push(transaction);
-    if (transaction.type === 'deposit') {
-      this.balance += transaction.amount
-    } else if (transaction.type === 'withdrawal') {
-      this.balance -= transaction.amount
-    } 
+    let transactionChecker = new TransactionChecker(transaction)
+    if (transactionChecker.check() === 'valid') {
+      this.all.push(transaction)
+      this.updateBalance(transaction)
+    }
   }
 
   byDate () { 
@@ -19,6 +20,14 @@ class Transactions {
       b = b.date.split('/').reverse().join('');
       return a < b ? 1 : a > b ? -1 : 0;
     });
+  }
+
+  updateBalance(transaction) {
+    if (transaction.type === 'deposit') {
+      this.balance += transaction.amount
+    } else if (transaction.type === 'withdrawal') {
+      this.balance -= transaction.amount
+    } 
   }
 }
 
