@@ -12,12 +12,12 @@ describe('Transaction', () => {
     expect(transactionChecker.check()).toEqual('invalid');
   });
   it('returns invalid if amount is empty', () => {
-    const transactionDouble = { date: null, amount: null, type: 'deposit'};
+    const transactionDouble = { date: '10/01/2023', amount: null, type: 'deposit'};
     const transactionChecker = new TransactionChecker(transactionDouble)
     expect(transactionChecker.check()).toEqual('invalid');
   });
   it('returns invalid if type is empty', () => {
-    const transactionDouble = { date: null, amount: null, type: null };
+    const transactionDouble = { date: '10/01/2023', amount: null, type: null };
     const transactionChecker = new TransactionChecker(transactionDouble)
     expect(transactionChecker.check()).toEqual('invalid');
   });
@@ -38,6 +38,16 @@ describe('Transaction', () => {
   });
   it('returns invalid if type is neither deposit or withdrawal', () => {
     const transactionDouble = { date: '10/01/2023', amount: 1000, type: 'unrecognised' };
+    const transactionChecker = new TransactionChecker(transactionDouble)
+    expect(transactionChecker.check()).toEqual('invalid');
+  });
+  it('returns invalid if date formatt is incorrect', () => {
+    const transactionDouble = { date: '10th March 2022', amount: 1000, type: 'deposit' };
+    const transactionChecker = new TransactionChecker(transactionDouble)
+    expect(transactionChecker.check()).toEqual('invalid');
+  });
+  it('returns invalid if date formatt is incorrect', () => {
+    const transactionDouble = { date: '10-01-2023', amount: 1000, type: 'deposit' };
     const transactionChecker = new TransactionChecker(transactionDouble)
     expect(transactionChecker.check()).toEqual('invalid');
   });
