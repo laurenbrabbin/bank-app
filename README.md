@@ -1,5 +1,5 @@
 ## Bank Application
-This appliation mimics the functionality of a basic bank account:
+This application mimics the functionality of a basic bank account:
 - You can make deposits and withdrawals. 
 - You can view an account statement which includes transaction date, transaction amount and balance.
 
