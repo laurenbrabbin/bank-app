@@ -34,6 +34,26 @@ describe('Transactions', () => {
     expect(transactions.byDate()[1].date).toEqual('13/01/2023');
     expect(transactions.byDate()[2].date).toEqual('10/01/2023');
   });
+  it('it adds to the balance if transaction is a deposit', () => {
+    const transactions = new Transactions
+    const transactionDouble = { date: '13/01/2023', amount: 2000, type: 'deposit'};
+    transactions.add(transactionDouble);
+    expect(transactions.balance).toEqual(2000);
+  });
+  it('it can hold a minus balance', () => {
+    const transactions = new Transactions
+    const transactionDouble = { date: '13/01/2023', amount: 500, type: 'withdrawal'};
+    transactions.add(transactionDouble);
+    expect(transactions.balance).toEqual(-500);
+  });
+  it('it minuses from the balance if transaction is a deposit', () => {
+    const transactions = new Transactions
+    const transactionDouble = { date: '13/01/2023', amount: 2000, type: 'deposit'};
+    const transactionDouble1 = { date: '13/01/2023', amount: 500, type: 'withdrawal'};
+    transactions.add(transactionDouble);
+    transactions.add(transactionDouble1);
+    expect(transactions.balance).toEqual(1500);
+  });
   it('it returns the balance', () => {
     const transactions = new Transactions
     const transactionDouble = { date: '13/01/2023', amount: 2000, type: 'deposit'};

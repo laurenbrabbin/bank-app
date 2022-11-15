@@ -1,6 +1,6 @@
 class Transaction {
   constructor (amount, type) { 
-    this.amount = amount; //convert to integer
+    this.amount = amount; 
     this.type = type;
     this.date = this.formatDate(new Date());
   }

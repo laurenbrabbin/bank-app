@@ -4,7 +4,6 @@ class Transactions {
   constructor() {
     this.all = [];
     this.balance = 0;
-    this.orderedByDate = this.byDate();
   }
 
   add(transaction){
@@ -12,7 +11,9 @@ class Transactions {
     if (transactionChecker.check() === 'valid') {
       this.all.push(transaction);
       this.updateBalance(transaction);
-    };
+    } else {
+      console.log('That transaction is invalid and has not been submitted')
+    }
   }
 
   byDate () { 

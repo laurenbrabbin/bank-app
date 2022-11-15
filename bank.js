@@ -1,7 +1,7 @@
 class Bank {
   constructor(transactions) {
     this.balance = transactions.balance;
-    this.transactions = transactions.orderedByDate; // should it be byDate()
+    this.transactions = transactions.byDate(); 
     this.sum = 0;
   }
 

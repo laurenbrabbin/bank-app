@@ -14,7 +14,7 @@ class TransactionChecker {
   }
 
   isEmpty () {
-    if (this.date == null || this.date == "" || this.amount == null || this.amount == "" || this.type == null || this.type == "") {
+    if (this.date === null || this.date === "" || this.amount === null || this.amount === "" || this.type === null || this.type === "") {
       return true;
     } else {
       return false;
@@ -22,7 +22,7 @@ class TransactionChecker {
   }
 
   isNumerical () {
-    if (this.amount === true || this.amount === false || typeof this.amount === 'string') {
+    if (this.amount === true || this.amount === false || typeof this.amount == 'string') {
       return false;
     } else if (!isNaN(this.amount)) {
       return true;

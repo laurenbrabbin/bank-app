@@ -3,7 +3,7 @@ const Bank = require("./bank")
 describe('Bank', () => {
   it('returns a formatted bank statement with one transaction', () => {
     const transactionsDouble = { 
-      orderedByDate: [
+      byDate: () => [
       { date: '14/01/2023', amount: 500, type: 'withdrawal' }
       ], 
       balance: 2500
@@ -14,7 +14,7 @@ describe('Bank', () => {
   });
   it('returns a formatted bank statement with more than one transaction', () => {
     const transactionsDouble = { 
-      orderedByDate: [
+      byDate: () => [
       { date: '14/01/2023', amount: 500, type: 'withdrawal' },
       { date: '13/01/2023', amount: 2000, type: 'deposit' },
       { date: '10/01/2023', amount: 1000, type: 'deposit' }
@@ -27,7 +27,7 @@ describe('Bank', () => {
   });
   it('allows bank statement to be printed more than once', () => {
     const transactionsDouble = { 
-      orderedByDate: [
+      byDate: () => [
       { date: '14/01/2023', amount: 500, type: 'withdrawal' }
       ], 
       balance: 2500
