@@ -2,40 +2,40 @@ class TransactionChecker {
   constructor(transaction) {
     this.date = transaction.date;
     this.amount = transaction.amount;
-    this.type = transaction.type
+    this.type = transaction.type;
   }
 
   check () {
     if (this.isEmpty() === true || this.isNumerical() === false || this.isValidType() === false || this.isValidDate() === false){
-      return 'invalid' 
+      return 'invalid'; 
     } else {
-      return 'valid'
-    }
+      return 'valid';
+    };
   }
 
   isEmpty () {
     if (this.date == null || this.date == "" || this.amount == null || this.amount == "" || this.type == null || this.type == "") {
-      return true
+      return true;
     } else {
-      return false
-    }
+      return false;
+    };
   }
 
   isNumerical () {
     if (this.amount === true || this.amount === false || typeof this.amount === 'string') {
-      return false
+      return false;
     } else if (!isNaN(this.amount)) {
-      return true
+      return true;
     } else {
-      return false
-    }
+      return false;
+    };
   }
 
   isValidType () {
     if (this.type == 'deposit' || this.type == 'withdrawal') {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 
@@ -59,4 +59,4 @@ class TransactionChecker {
 };
 }
 
-module.exports = TransactionChecker
+module.exports = TransactionChecker;

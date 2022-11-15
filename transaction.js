@@ -1,8 +1,8 @@
 class Transaction {
   constructor (amount, type) { 
-    this.amount = amount //convert to integer
-    this.type = type
-    this.date = this.formatDate(new Date())
+    this.amount = amount; //convert to integer
+    this.type = type;
+    this.date = this.formatDate(new Date());
   }
 
   padTo2Digits = (num) => {
@@ -18,4 +18,4 @@ class Transaction {
   }
 }
 
-module.exports = Transaction
+module.exports = Transaction;
