@@ -3,11 +3,11 @@ This application mimics the functionality of a basic bank account:
 - You can make deposits and withdrawals. 
 - You can view an account statement which includes transaction date, transaction amount and balance.
 
-## Technologies:
+## Technologies
 1. The application is written in Javascript
 2. The application is tested using Jest
 
-## Example how the app works
+## Example of how the app works
 
 - A client makes a deposit of 1000 on 10-01-2023
 - followed by a deposit of 2000 on 13-01-2023
@@ -33,7 +33,7 @@ The app is broken down into 5 classes:
 5. Bank (bank.js) - This class takes the transactions as a parameter and prints the bank statement when calling the .statement() method.
 
 
-## How to run the project
+## Running the program
 1. Clone this repository to your local machine
 2. Install Node.js dependencies 
    ```
@@ -47,7 +47,7 @@ The app is broken down into 5 classes:
 - Require the bank.js file, create a new object using the Bank class - passing the transactions as a parameter.
 - To view the bank statement call .statement() on the bank object.
 
-### Example
+### Node Example
 ```javascript
 const Transaction = require('./transaction')
 const transaction = new Transaction(1000, 'deposit')
@@ -74,7 +74,7 @@ date || credit || debit || balance
 ```
 * Output will vary depending on the date the transaction was created. The Transaction class program will automatically set the date as the current date on your local device the day the transaction was created.
 
-## How to run the tests
+## Running the tests
 1. Clone your this repository to your local machine
 2. Install Node.js dependencies 
    ```
