@@ -44,7 +44,7 @@ describe('Transaction', () => {
   it('isNumerical returns false if amount is anything but an integer number', () => {
     const transactionDouble = { date: '10/01/2023', amount: {amount: 'ivalid'}, type: 'deposit' };
     const transactionChecker = new TransactionChecker(transactionDouble);
-    expect(transactionChecker.isNumerical()).toEqual(false);
+    expect(transactionChecker.isNumerical()).not.toEqual(true);
   });
   it('checker returns invalid if amount is not a number', () => {
     const transactionDouble = { date: '10/01/2023', amount: "string", type: 'deposit' };
@@ -106,9 +106,9 @@ describe('Transaction', () => {
     const transactionChecker = new TransactionChecker(transactionDouble);
     expect(transactionChecker.isValidDate()).toEqual(false);
   });
-  it('isValidDate returns true for a leap year', () => {
-    const transactionDouble = { date: '29/02/2020', amount: 1000, type: 'invalid' };
+  it('isValidDate returns false for incorrect leap year', () => {
+    const transactionDouble = { date: '29/02/2022', amount: 1000, type: 'invalid' };
     const transactionChecker = new TransactionChecker(transactionDouble);
-    expect(transactionChecker.isValidDate()).toEqual(true);
+    expect(transactionChecker.isValidDate()).toEqual(false);
   });
 })

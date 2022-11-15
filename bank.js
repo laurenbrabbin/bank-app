@@ -6,18 +6,29 @@ class Bank {
   }
 
   formatTransactions = (transaction) => {
+    const amount = transaction.amount
+    const date = transaction.date
     if (transaction.type === 'deposit') {
-      this.sum -= transaction.amount;
-      return `${transaction.date} || ${transaction.amount.toFixed(2)} || || ${(this.sum + transaction.amount).toFixed(2)}\n`;
-    } else {
-      this.sum += transaction.amount;
-      return `${transaction.date} || || ${transaction.amount.toFixed(2)} || ${(this.sum - transaction.amount).toFixed(2)}\n`;
-    };
+      return this.depositFormat(date, amount)
+    } else { return this.withdrawalFormat(date, amount)};
+  }
+
+  depositFormat = (date, amount) => {
+    this.sum -= amount;
+    const balance = this.sum + amount;
+    return `${date} || ${amount.toFixed(2)} || || ${(balance).toFixed(2)}\n`;
+  }
+
+  withdrawalFormat = (date, amount) => {
+    this.sum += amount;
+    const balance = this.sum - amount;
+    return `${date} || || ${amount.toFixed(2)} || ${(balance).toFixed(2)}\n`;
   }
 
   statement () {
     this.sum = this.balance;
-    return 'date || credit || debit || balance\n' + this.transactions.map(this.formatTransactions).join('');
+    const header = 'date || credit || debit || balance\n'
+    return header + this.transactions.map(this.formatTransactions).join('');
   };
 }
 

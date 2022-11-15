@@ -24,12 +24,13 @@ date || credit || debit || balance
 
 # Code structure
 
-The app is broken down into 4 classes:
+The app is broken down into 5 classes:
 
 1. Transaction (transaction.js) - This class is responsible for creating a new transaction. It takes the transaction amount and type as parameters and sets the transaction date to the current date on your local device when the transaction object is created.
 2. Transactions (transactions.js) - This class stores all valid transactions. A transaction is added into the transactions class object by calling the .add() method - passing an instance of the Transaction class as the parameter. This class is also responsible for ordering the transactions in decsending order by date.
 3. TransactionsChecker (transactionsChecker.js) - This class is responsible for checking whether a transaction is valid or not. It is called within the Transactions class within the .add() method. It prevents any invalid transactions being added.
-4. Bank (bank.js) - This class takes the transactions as a parameter and prints the bank statement when calling the .statement() method.
+4. DateChecker (dateChecker.js) - This class is responsible for checking the transaction date specifically. It is called within the TransactionsChecker class.
+5. Bank (bank.js) - This class takes the transactions as a parameter and prints the bank statement when calling the .statement() method.
 
 
 # How to run the project
@@ -84,5 +85,6 @@ date || credit || debit || balance
    ; jest transaction.test.js
    ; jest transactions.test.js
    ; jest transactionsChecker.test.js
+   ; jest dateChecker.test.js
    ; jest bank.test.js
    ```

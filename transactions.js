@@ -11,8 +11,8 @@ class Transactions {
     if (transactionChecker.check() === 'valid') {
       this.all.push(transaction);
       this.updateBalance(transaction);
-    } else {
-      console.log('That transaction is invalid and has not been submitted')
+    } else { 
+      console.log('That transaction is invalid and has not been submitted') 
     }
   }
 

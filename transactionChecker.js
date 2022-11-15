@@ -1,3 +1,5 @@
+const DateChecker = require("./dateChecker")
+
 class TransactionChecker {
   constructor(transaction) {
     this.date = transaction.date;
@@ -6,29 +8,19 @@ class TransactionChecker {
   }
 
   check () {
-    if (this.isEmpty() === true || this.isNumerical() === false || this.isValidType() === false || this.isValidDate() === false){
+    if (this.isEmpty() === true || (this.isNumerical() !== true)) {
       return 'invalid'; 
-    } else {
-      return 'valid';
-    };
+    } else if (this.isValidType() === false || this.isValidDate() === false) {
+      return 'invalid'
+    } else { return 'valid' };
   }
 
   isEmpty () {
-    if (this.date === null || this.date === "" || this.amount === null || this.amount === "" || this.type === null || this.type === "") {
+    if (this.date === null || this.amount === null || this.type === null) {
       return true;
-    } else {
-      return false;
-    };
-  }
-
-  isNumerical () {
-    if (this.amount === true || this.amount === false || typeof this.amount == 'string') {
-      return false;
-    } else if (!isNaN(this.amount)) {
+    } else if (this.date === "" || this.amount === "" || this.type === "null") {
       return true;
-    } else {
-      return false;
-    };
+    } else { return false };
   }
 
   isValidType () {
@@ -39,24 +31,18 @@ class TransactionChecker {
     }
   }
 
-  isValidDate () {
-    if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(this.date)) {
-        return false; }
+  isNumerical () {
+    if (typeof this.amount == "boolean" || typeof this.amount == 'string') {
+      return false;
+    } else if (!isNaN(this.amount)) {
+      return true;
+    } 
+  }
 
-    var parts = this.date.split("/");
-    var day = parseInt(parts[0], 10);
-    var month = parseInt(parts[1], 10);
-    var year = parseInt(parts[2], 10);
-
-    if(year < 1000 || year > 3000 || month == 0 || month > 12) {
-        return false;}
-
-    var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
-
-    if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
-        monthLength[1] = 29;
-    return day > 0 && day <= monthLength[month - 1]; }
-};
+   isValidDate () {
+    const dateChecker = new DateChecker(this.date);
+    return dateChecker.isValidDate()
+  };
 }
 
 module.exports = TransactionChecker;
